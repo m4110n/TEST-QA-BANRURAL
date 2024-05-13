@@ -27,3 +27,40 @@ Como entregables debe presentar lo siguiente:
 * El plan de ataque test-strategy.md
 ## Recursos:
 * Event Target: https://developer.mozilla.org/es/docs/Web/API/EventTarget
+
+* ## ERRORES ENCONTRADOS
+* Errores Encontrados:
+
+1. Generación de Número Aleatorio:
+   - El código original generaba un número aleatorio entre 0 y 9 utilizando `Math.random() * 10`. Sin embargo, el juego requería un número entre 1 y 100. Este error podría afectar la experiencia del juego ya que los usuarios esperan adivinar un número dentro de ese rango.
+   
+2. Error Tipográfico en Constante:
+   - La constante `ATTEMPS` fue definida con una ortografía incorrecta como `ATTEMPS` en lugar de `ATTEMPTS`. Este error tipográfico podría provocar un mal funcionamiento del juego si la constante se utiliza en otros lugares del código.
+
+3. Selección de Elemento HTML Incorrecto:
+   - En la línea `const lowOrHi = document.querySelector('lowOrHi');`, se intentó seleccionar un elemento HTML con la clase `lowOrHi`, pero se omitió el punto antes del nombre de la clase. Esto provocaría que el código no seleccionara el elemento deseado y causaría un mal funcionamiento en la actualización de la pista de si el número es mayor o menor.
+
+4. Error de Sintaxis en el Método `addEventListener`:
+   - En dos lugares del código, se utilizó el método `addeventListener` en lugar de `addEventListener`. Este error de sintaxis causaría que los eventos no se vinculen correctamente a los elementos HTML y afectaría la funcionalidad del juego.
+
+5. Generación Incorrecta de Número Aleatorio al Reiniciar el Juego:
+   - Al reiniciar el juego, se intentó generar un nuevo número aleatorio utilizando `Math.floor(Math.random()) + 1`, lo cual es incorrecto. Esto generaría siempre el número 1, lo que no es lo esperado para un juego de adivinanzas. El código debería haber utilizado `Math.floor(Math.random() * 100) + 1` para generar un número aleatorio entre 1 y 100.
+
+Cambios Realizados:
+
+1. Generación de Número Aleatorio:
+   - Se corrigió la generación del número aleatorio utilizando `Math.floor(Math.random() * 100) + 1`, asegurando que esté dentro del rango requerido para el juego.
+
+2. Corrección de Ortografía en Constante:
+   - Se corrigió la ortografía de la constante `ATTEMPTS` para que coincida con su uso en el código, evitando posibles errores tipográficos futuros.
+
+3. Selección Correcta de Elemento HTML:
+   - Se añadió el punto antes del nombre de la clase al seleccionar el elemento HTML con la clase `lowOrHi`, asegurando así la correcta selección del elemento y la actualización de su contenido.
+
+4. Corrección de Sintaxis en el Método `addEventListener`:
+   - Se corrigió la sintaxis del método `addEventListener` en dos lugares del código, asegurando que los eventos se vinculen correctamente a los elementos HTML y funcionen como se espera.
+
+5. Generación Correcta de Número Aleatorio al Reiniciar el Juego:
+   - Se corrigió la generación del número aleatorio al reiniciar el juego utilizando `Math.floor(Math.random() * 100) + 1`, garantizando que se genere un número aleatorio dentro del rango requerido para el juego.
+
+Estos cambios aseguran que el juego funcione correctamente y proporcione una experiencia de usuario satisfactoria.
